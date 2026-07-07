@@ -183,7 +183,6 @@ toolbarbutton[open="true"],
   color: var(--simhae-base0c) !important;
 }
 
-#sidebar-box,
 #sidebar-header,
 sidebar-main,
 zen-sidebar,
@@ -192,7 +191,22 @@ zen-workspaces-button,
 #zen-sidebar-bottom-buttons {
   background-color: var(--simhae-base00) !important;
   color: var(--simhae-base05) !important;
-  border-color: var(--simhae-base03) !important;
+}
+
+#sidebar-box {
+  background-color: var(--simhae-base00) !important;
+  border: 3px solid var(--simhae-front-app-border) !important;
+  border-radius: 12px !important;
+  overflow: clip !important;
+}
+
+#sidebar-header,
+sidebar-main,
+zen-sidebar,
+zen-workspaces-button,
+#zen-sidebar-top-buttons,
+#zen-sidebar-bottom-buttons {
+  border: none !important;
 }
 
 #tabbrowser-tabpanels,

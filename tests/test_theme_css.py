@@ -24,6 +24,7 @@ class ThemeCssTest(unittest.TestCase):
     def test_browser_content_shell_uses_base00(self):
         css = CSS.read_text()
         selectors = [
+            "#sidebar-box",
             "#tabbrowser-tabpanels",
             "#browser",
             "#zen-appcontent-wrapper",
@@ -34,7 +35,12 @@ class ThemeCssTest(unittest.TestCase):
         for selector in selectors:
             with self.subTest(selector=selector):
                 self.assertIn(selector, css)
-                self.assertIn("background: var(--simhae-base00) !important;", block_for(selector))
+                block = block_for(selector)
+                if selector == "#sidebar-box":
+                    self.assertIn("background-color: var(--simhae-base00) !important;", block)
+                    self.assertIn("border: 3px solid var(--simhae-front-app-border) !important;", block)
+                else:
+                    self.assertIn("background: var(--simhae-base00) !important;", block)
 
     def test_focused_urlbar_background_uses_base00(self):
         block = block_for('#urlbar[focused="true"] > .urlbar-background')

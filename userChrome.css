@@ -195,6 +195,22 @@ zen-workspaces-button,
   border-color: var(--simhae-base03) !important;
 }
 
+#tabbrowser-tabpanels,
+#browser,
+#zen-appcontent-wrapper,
+.browserSidebarContainer,
+.browserSidebarContainer browser[type="content"] {
+  background: var(--simhae-base00) !important;
+}
+
+.browserSidebarContainer {
+  border-radius: var(--zen-native-inner-radius) !important;
+}
+
+.browserSidebarContainer browser[type="content"] {
+  border: none !important;
+}
+
 #zen-workspaces-button toolbarbutton:hover,
 #zen-sidebar-top-buttons toolbarbutton:hover,
 #zen-sidebar-bottom-buttons toolbarbutton:hover {

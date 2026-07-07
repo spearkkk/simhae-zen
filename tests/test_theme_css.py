@@ -25,6 +25,7 @@ class ThemeCssTest(unittest.TestCase):
         block = block_for('#urlbar[focused="true"] > .urlbar-background')
 
         self.assertIn("background: var(--simhae-front-app-background) !important;", block)
+        self.assertIn("border: none !important;", block)
 
     def test_open_urlbar_and_popup_background_use_base00(self):
         css = CSS.read_text()
@@ -33,6 +34,10 @@ class ThemeCssTest(unittest.TestCase):
         self.assertIn(".urlbarView", css)
         self.assertIn(
             "background: var(--simhae-front-app-background) !important;",
+            block_for("#urlbar[open] > .urlbar-background"),
+        )
+        self.assertIn(
+            "border: none !important;",
             block_for("#urlbar[open] > .urlbar-background"),
         )
         self.assertIn(
@@ -46,6 +51,7 @@ class ThemeCssTest(unittest.TestCase):
             "#urlbar[breakout][breakout-extend]",
             "#urlbar[breakout][breakout-extend] > .urlbar-background",
             "#urlbar[breakout][breakout-extend] > .urlbar-input-container",
+            "#urlbar[breakout][breakout-extend] .urlbarView",
             ".urlbarView-body-outer",
             ".urlbarView-body-inner",
             ".urlbarView-results",
@@ -55,10 +61,14 @@ class ThemeCssTest(unittest.TestCase):
         for selector in selectors:
             with self.subTest(selector=selector):
                 self.assertIn(selector, css)
-                self.assertIn(
-                    "background: var(--simhae-front-app-background) !important;",
-                    block_for(selector),
-                )
+                block = block_for(selector)
+                self.assertIn("background: var(--simhae-front-app-background) !important;", block)
+                if selector == "#urlbar[breakout][breakout-extend]":
+                    self.assertIn("border: 3px solid var(--simhae-front-app-border) !important;", block)
+                elif selector == "#urlbar[breakout][breakout-extend] .urlbarView":
+                    self.assertIn("border-top: 1px solid var(--simhae-front-app-border) !important;", block)
+                else:
+                    self.assertIn("border: none !important;", block)
 
 
 if __name__ == "__main__":

@@ -75,7 +75,7 @@
 #urlbar[focused="true"] > .urlbar-background,
 #urlbar[focused="true"] > .urlbar-input-container {
   background: var(--simhae-front-app-background) !important;
-  border: 3px solid var(--simhae-front-app-border) !important;
+  border: none !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -83,7 +83,7 @@
 #urlbar[open] > .urlbar-background,
 #urlbar[open] > .urlbar-input-container {
   background: var(--simhae-front-app-background) !important;
-  border: 3px solid var(--simhae-front-app-border) !important;
+  border: none !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -91,15 +91,26 @@
 #urlbar[breakout][breakout-extend] {
   background: var(--simhae-front-app-background) !important;
   color: var(--simhae-front-app-foreground) !important;
+  border: 3px solid var(--simhae-front-app-border) !important;
+  border-radius: 12px !important;
+  overflow: clip !important;
 }
 
 #urlbar[breakout][breakout-extend] > .urlbar-background,
 #urlbar[breakout][breakout-extend] > .urlbar-input-container {
   background: var(--simhae-front-app-background) !important;
   background-color: var(--simhae-front-app-background) !important;
-  border: 3px solid var(--simhae-front-app-border) !important;
+  border: none !important;
   box-shadow: none !important;
   outline: none !important;
+}
+
+#urlbar[breakout][breakout-extend] .urlbarView {
+  background: var(--simhae-front-app-background) !important;
+  border: none !important;
+  border-top: 1px solid var(--simhae-front-app-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 #urlbar[breakout][breakout-extend] #urlbar-input,
@@ -114,7 +125,8 @@
 .urlbarView-row-inner {
   background: var(--simhae-front-app-background) !important;
   color: var(--simhae-front-app-foreground) !important;
-  border-color: var(--simhae-front-app-border) !important;
+  border: none !important;
+  border-color: transparent !important;
 }
 
 .urlbarView-row:hover,

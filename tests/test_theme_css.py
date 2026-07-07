@@ -22,18 +22,18 @@ class ThemeCssTest(unittest.TestCase):
         self.assertIn("--simhae-front-app-border: rgba(74, 110, 134, 0.9);", css)
 
     def test_focused_urlbar_background_uses_base00(self):
-        block = block_for('#urlbar[focused="true"] > #urlbar-background')
+        block = block_for('#urlbar[focused="true"] > .urlbar-background')
 
         self.assertIn("background: var(--simhae-front-app-background) !important;", block)
 
     def test_open_urlbar_and_popup_background_use_base00(self):
         css = CSS.read_text()
 
-        self.assertIn("#urlbar[open] > #urlbar-background", css)
+        self.assertIn("#urlbar[open] > .urlbar-background", css)
         self.assertIn(".urlbarView", css)
         self.assertIn(
             "background: var(--simhae-front-app-background) !important;",
-            block_for("#urlbar[open] > #urlbar-background"),
+            block_for("#urlbar[open] > .urlbar-background"),
         )
         self.assertIn(
             "background: var(--simhae-front-app-background) !important;",
@@ -44,7 +44,8 @@ class ThemeCssTest(unittest.TestCase):
         css = CSS.read_text()
         selectors = [
             "#urlbar[breakout][breakout-extend]",
-            "#urlbar[breakout][breakout-extend] > #urlbar-background",
+            "#urlbar[breakout][breakout-extend] > .urlbar-background",
+            "#urlbar[breakout][breakout-extend] > .urlbar-input-container",
             ".urlbarView-body-outer",
             ".urlbarView-body-inner",
             ".urlbarView-results",

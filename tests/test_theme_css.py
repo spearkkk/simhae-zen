@@ -43,6 +43,7 @@ class ThemeCssTest(unittest.TestCase):
                 if selector == "#sidebar-box":
                     self.assertIn("background-color: var(--simhae-base00) !important;", block)
                     self.assertIn("border: 3px solid var(--simhae-front-app-border) !important;", block)
+                    self.assertIn("box-shadow: none !important;", block)
                 else:
                     self.assertIn("background: var(--simhae-base00) !important;", block)
 

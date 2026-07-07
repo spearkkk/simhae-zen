@@ -197,6 +197,7 @@ zen-workspaces-button,
   background-color: var(--simhae-base00) !important;
   border: 3px solid var(--simhae-front-app-border) !important;
   border-radius: 12px !important;
+  box-shadow: none !important;
   overflow: clip !important;
 }
 

@@ -33,6 +33,23 @@ class ThemeCssTest(unittest.TestCase):
             block_for(".urlbarView"),
         )
 
+    def test_entire_open_urlbar_popup_shell_uses_base00(self):
+        css = CSS.read_text()
+        selectors = [
+            "#urlbar[breakout][breakout-extend]",
+            ".urlbarView-body-outer",
+            ".urlbarView-body-inner",
+            ".urlbarView-results",
+        ]
+
+        for selector in selectors:
+            with self.subTest(selector=selector):
+                self.assertIn(selector, css)
+                self.assertIn(
+                    "background-color: var(--simhae-base00) !important;",
+                    block_for(selector),
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

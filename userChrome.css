@@ -79,7 +79,14 @@
   border-color: var(--simhae-base0c) !important;
 }
 
-.urlbarView {
+#urlbar[breakout][breakout-extend] {
+  background-color: var(--simhae-base00) !important;
+}
+
+.urlbarView,
+.urlbarView-body-outer,
+.urlbarView-body-inner,
+.urlbarView-results {
   background-color: var(--simhae-base00) !important;
   color: var(--simhae-base05) !important;
   border-color: var(--simhae-base03) !important;

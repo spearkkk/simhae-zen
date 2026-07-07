@@ -211,9 +211,16 @@ zen-workspaces-button,
 
 #tabbrowser-tabpanels,
 #browser,
+#zen-main-app-wrapper,
+#tabbrowser-tabbox,
 #zen-appcontent-wrapper,
 .browserSidebarContainer,
 .browserSidebarContainer browser[type="content"] {
+  background: var(--simhae-base00) !important;
+}
+
+#zen-browser-background::before,
+#zen-browser-background::after {
   background: var(--simhae-base00) !important;
 }
 

@@ -27,9 +27,13 @@ class ThemeCssTest(unittest.TestCase):
             "#sidebar-box",
             "#tabbrowser-tabpanels",
             "#browser",
+            "#zen-main-app-wrapper",
+            "#tabbrowser-tabbox",
             "#zen-appcontent-wrapper",
             ".browserSidebarContainer",
             ".browserSidebarContainer browser[type=\"content\"]",
+            "#zen-browser-background::before",
+            "#zen-browser-background::after",
         ]
 
         for selector in selectors:

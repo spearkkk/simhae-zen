@@ -40,8 +40,11 @@
   --lwt-toolbar-field-background-color: var(--simhae-base01) !important;
   --lwt-toolbar-field-color: var(--simhae-base05) !important;
   --lwt-toolbar-field-border-color: var(--simhae-base03) !important;
-  --lwt-toolbar-field-focus: var(--simhae-base01) !important;
+  --lwt-toolbar-field-focus: var(--simhae-base00) !important;
   --lwt-toolbar-field-focus-color: var(--simhae-base07) !important;
+  --urlbarView-highlight-background: var(--simhae-base02) !important;
+  --urlbarView-highlight-color: var(--simhae-base07) !important;
+  --urlbarView-separator-color: var(--simhae-base03) !important;
   --arrowpanel-background: var(--simhae-base01) !important;
   --arrowpanel-color: var(--simhae-base05) !important;
   --arrowpanel-border-color: var(--simhae-base03) !important;
@@ -66,8 +69,31 @@
 }
 
 #urlbar[focused="true"] > #urlbar-background {
+  background-color: var(--simhae-base00) !important;
   border-color: var(--simhae-base0c) !important;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--simhae-base0c) 42%, transparent) !important;
+}
+
+#urlbar[open] > #urlbar-background {
+  background-color: var(--simhae-base00) !important;
+  border-color: var(--simhae-base0c) !important;
+}
+
+.urlbarView {
+  background-color: var(--simhae-base00) !important;
+  color: var(--simhae-base05) !important;
+  border-color: var(--simhae-base03) !important;
+}
+
+.urlbarView-row:hover,
+.urlbarView-row[selected] {
+  background-color: var(--simhae-base02) !important;
+  color: var(--simhae-base07) !important;
+}
+
+.urlbarView-title,
+.urlbarView-url {
+  color: var(--simhae-base05) !important;
 }
 
 .tab-background {

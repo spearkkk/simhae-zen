@@ -1,0 +1,154 @@
+:root {
+  --simhae-base00: #0a1f2e;
+  --simhae-base01: #142c3e;
+  --simhae-base02: #1c3a50;
+  --simhae-base03: #24425c;
+  --simhae-base04: #4a6e86;
+  --simhae-base05: #c6d8e4;
+  --simhae-base06: #d6e2e8;
+  --simhae-base07: #ecf0f4;
+  --simhae-base08: #c47a72;
+  --simhae-base09: #c8945a;
+  --simhae-base0a: #c8ae6a;
+  --simhae-base0b: #68be92;
+  --simhae-base0c: #50c4c0;
+  --simhae-base0d: #7896cc;
+  --simhae-base0e: #9a7ec8;
+  --simhae-base0f: #8c6040;
+  --simhae-base10: #071420;
+  --simhae-base11: #d08880;
+  --simhae-base12: #d4a870;
+  --simhae-base13: #d4be82;
+  --simhae-base14: #80ccaa;
+  --simhae-base15: #68d4d0;
+  --simhae-base16: #90aed8;
+  --simhae-base17: #ae96d4;
+
+  --zen-primary-color: var(--simhae-base0c) !important;
+  --zen-colors-primary: var(--simhae-base0c) !important;
+  --zen-colors-secondary: var(--simhae-base0d) !important;
+  --zen-colors-tertiary: var(--simhae-base02) !important;
+  --zen-colors-border: var(--simhae-base03) !important;
+  --zen-colors-hover-bg: var(--simhae-base02) !important;
+  --zen-colors-toolbar: var(--simhae-base00) !important;
+  --zen-main-browser-background: var(--simhae-base00) !important;
+  --zen-themed-toolbar-bg: var(--simhae-base00) !important;
+  --toolbar-bgcolor: var(--simhae-base00) !important;
+  --toolbar-color: var(--simhae-base05) !important;
+  --lwt-accent-color: var(--simhae-base00) !important;
+  --lwt-text-color: var(--simhae-base05) !important;
+  --lwt-toolbar-field-background-color: var(--simhae-base01) !important;
+  --lwt-toolbar-field-color: var(--simhae-base05) !important;
+  --lwt-toolbar-field-border-color: var(--simhae-base03) !important;
+  --lwt-toolbar-field-focus: var(--simhae-base01) !important;
+  --lwt-toolbar-field-focus-color: var(--simhae-base07) !important;
+  --arrowpanel-background: var(--simhae-base01) !important;
+  --arrowpanel-color: var(--simhae-base05) !important;
+  --arrowpanel-border-color: var(--simhae-base03) !important;
+  --sidebar-background-color: var(--simhae-base00) !important;
+  --sidebar-text-color: var(--simhae-base05) !important;
+}
+
+#navigator-toolbox,
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar {
+  background-color: var(--simhae-base00) !important;
+  color: var(--simhae-base05) !important;
+  border-color: var(--simhae-base03) !important;
+}
+
+#urlbar-background,
+#searchbar {
+  background-color: var(--simhae-base01) !important;
+  border-color: var(--simhae-base03) !important;
+  color: var(--simhae-base05) !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+  border-color: var(--simhae-base0c) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--simhae-base0c) 42%, transparent) !important;
+}
+
+.tab-background {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background {
+  background-color: var(--simhae-base02) !important;
+}
+
+.tabbrowser-tab[selected="true"] > .tab-stack > .tab-background,
+.tabbrowser-tab[multiselected="true"] > .tab-stack > .tab-background {
+  background-color: var(--simhae-base01) !important;
+  border-color: var(--simhae-base03) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-label,
+.tabbrowser-tab[multiselected="true"] .tab-label {
+  color: var(--simhae-base07) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-background::before {
+  background-color: var(--simhae-base0c) !important;
+}
+
+toolbarbutton,
+.toolbarbutton-1,
+.urlbar-page-action {
+  color: var(--simhae-base05) !important;
+}
+
+toolbarbutton:hover,
+.toolbarbutton-1:hover,
+.urlbar-page-action:hover {
+  background-color: var(--simhae-base02) !important;
+  color: var(--simhae-base07) !important;
+}
+
+toolbarbutton[open="true"],
+.toolbarbutton-1[open="true"] {
+  background-color: var(--simhae-base02) !important;
+  color: var(--simhae-base0c) !important;
+}
+
+#sidebar-box,
+#sidebar-header,
+sidebar-main,
+zen-sidebar,
+zen-workspaces-button,
+#zen-sidebar-top-buttons,
+#zen-sidebar-bottom-buttons {
+  background-color: var(--simhae-base00) !important;
+  color: var(--simhae-base05) !important;
+  border-color: var(--simhae-base03) !important;
+}
+
+#zen-workspaces-button toolbarbutton:hover,
+#zen-sidebar-top-buttons toolbarbutton:hover,
+#zen-sidebar-bottom-buttons toolbarbutton:hover {
+  background-color: var(--simhae-base02) !important;
+}
+
+menupopup,
+panel,
+panelview,
+dialog {
+  --panel-background: var(--simhae-base01) !important;
+  --panel-color: var(--simhae-base05) !important;
+  --panel-border-color: var(--simhae-base03) !important;
+}
+
+menu,
+menuitem,
+.subviewbutton {
+  color: var(--simhae-base05) !important;
+}
+
+menu:hover,
+menuitem:hover,
+.subviewbutton:hover {
+  background-color: var(--simhae-base02) !important;
+  color: var(--simhae-base07) !important;
+}

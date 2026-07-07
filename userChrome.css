@@ -24,6 +24,10 @@
   --simhae-base16: #90aed8;
   --simhae-base17: #ae96d4;
 
+  --simhae-front-app-foreground: var(--simhae-base05);
+  --simhae-front-app-background: var(--simhae-base01);
+  --simhae-front-app-border: rgba(74, 110, 134, 0.9);
+
   --zen-primary-color: var(--simhae-base0c) !important;
   --zen-colors-primary: var(--simhae-base0c) !important;
   --zen-colors-secondary: var(--simhae-base0d) !important;
@@ -40,8 +44,8 @@
   --lwt-toolbar-field-background-color: var(--simhae-base01) !important;
   --lwt-toolbar-field-color: var(--simhae-base05) !important;
   --lwt-toolbar-field-border-color: var(--simhae-base03) !important;
-  --lwt-toolbar-field-focus: var(--simhae-base00) !important;
-  --lwt-toolbar-field-focus-color: var(--simhae-base07) !important;
+  --lwt-toolbar-field-focus: var(--simhae-front-app-background) !important;
+  --lwt-toolbar-field-focus-color: var(--simhae-front-app-foreground) !important;
   --urlbarView-highlight-background: var(--simhae-base02) !important;
   --urlbarView-highlight-color: var(--simhae-base07) !important;
   --urlbarView-separator-color: var(--simhae-base03) !important;
@@ -69,38 +73,52 @@
 }
 
 #urlbar[focused="true"] > #urlbar-background {
-  background-color: var(--simhae-base00) !important;
-  border-color: var(--simhae-base0c) !important;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--simhae-base0c) 42%, transparent) !important;
+  background: var(--simhae-front-app-background) !important;
+  border: 3px solid var(--simhae-front-app-border) !important;
+  box-shadow: none !important;
 }
 
 #urlbar[open] > #urlbar-background {
-  background-color: var(--simhae-base00) !important;
-  border-color: var(--simhae-base0c) !important;
+  background: var(--simhae-front-app-background) !important;
+  border: 3px solid var(--simhae-front-app-border) !important;
+  box-shadow: none !important;
 }
 
 #urlbar[breakout][breakout-extend] {
-  background-color: var(--simhae-base00) !important;
+  background: var(--simhae-front-app-background) !important;
+  color: var(--simhae-front-app-foreground) !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  background: var(--simhae-front-app-background) !important;
+  border: 3px solid var(--simhae-front-app-border) !important;
+  box-shadow: none !important;
+}
+
+#urlbar[breakout][breakout-extend] #urlbar-input,
+#urlbar[breakout][breakout-extend] .urlbar-input {
+  color: var(--simhae-front-app-foreground) !important;
 }
 
 .urlbarView,
 .urlbarView-body-outer,
 .urlbarView-body-inner,
-.urlbarView-results {
-  background-color: var(--simhae-base00) !important;
-  color: var(--simhae-base05) !important;
-  border-color: var(--simhae-base03) !important;
+.urlbarView-results,
+.urlbarView-row-inner {
+  background: var(--simhae-front-app-background) !important;
+  color: var(--simhae-front-app-foreground) !important;
+  border-color: var(--simhae-front-app-border) !important;
 }
 
 .urlbarView-row:hover,
 .urlbarView-row[selected] {
   background-color: var(--simhae-base02) !important;
-  color: var(--simhae-base07) !important;
+  color: var(--simhae-front-app-foreground) !important;
 }
 
 .urlbarView-title,
 .urlbarView-url {
-  color: var(--simhae-base05) !important;
+  color: var(--simhae-front-app-foreground) !important;
 }
 
 .tab-background {

@@ -27,6 +27,7 @@
   --simhae-front-app-foreground: var(--simhae-base05);
   --simhae-front-app-background: var(--simhae-base01);
   --simhae-front-app-border: rgba(74, 110, 134, 0.9);
+  --simhae-sidebar-reveal-border: rgba(74, 110, 134, 0.68);
 
   --zen-primary-color: var(--simhae-base0c) !important;
   --zen-colors-primary: var(--simhae-base0c) !important;
@@ -195,10 +196,30 @@ zen-workspaces-button,
 
 #sidebar-box {
   background-color: var(--simhae-base00) !important;
-  border: 3px solid var(--simhae-front-app-border) !important;
+  border: 3px solid var(--simhae-sidebar-reveal-border) !important;
   border-radius: 12px !important;
   box-shadow: none !important;
   overflow: clip !important;
+}
+
+#zen-tabbox-wrapper #sidebar-box {
+  box-shadow: none !important;
+}
+
+#sidebar-splitter,
+#sidebar-launcher-splitter,
+#zen-sidebar-splitter {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#zen-sidebar-splitter:hover {
+  background: var(--simhae-sidebar-reveal-border) !important;
+}
+
+#zen-sidebar-splitter::before {
+  background: var(--simhae-sidebar-reveal-border) !important;
 }
 
 #sidebar-header,

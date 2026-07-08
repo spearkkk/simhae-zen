@@ -20,6 +20,7 @@ class ThemeCssTest(unittest.TestCase):
         self.assertIn("--simhae-front-app-foreground: var(--simhae-base05);", css)
         self.assertIn("--simhae-front-app-background: var(--simhae-base01);", css)
         self.assertIn("--simhae-front-app-border: rgba(74, 110, 134, 0.9);", css)
+        self.assertIn("--simhae-sidebar-reveal-border: rgba(74, 110, 134, 0.68);", css)
 
     def test_browser_content_shell_uses_base00(self):
         css = CSS.read_text()
@@ -42,10 +43,35 @@ class ThemeCssTest(unittest.TestCase):
                 block = block_for(selector)
                 if selector == "#sidebar-box":
                     self.assertIn("background-color: var(--simhae-base00) !important;", block)
-                    self.assertIn("border: 3px solid var(--simhae-front-app-border) !important;", block)
+                    self.assertIn("border: 3px solid var(--simhae-sidebar-reveal-border) !important;", block)
                     self.assertIn("box-shadow: none !important;", block)
                 else:
                     self.assertIn("background: var(--simhae-base00) !important;", block)
+
+    def test_sidebar_reveal_splitter_uses_alpha_border_color(self):
+        css = CSS.read_text()
+        selectors = [
+            "#sidebar-splitter",
+            "#sidebar-launcher-splitter",
+            "#zen-sidebar-splitter",
+            "#zen-sidebar-splitter:hover",
+            "#zen-sidebar-splitter::before",
+        ]
+
+        for selector in selectors:
+            with self.subTest(selector=selector):
+                self.assertIn(selector, css)
+
+        self.assertIn("background: transparent !important;", block_for("#sidebar-splitter"))
+        self.assertIn("border: none !important;", block_for("#sidebar-splitter"))
+        self.assertIn(
+            "background: var(--simhae-sidebar-reveal-border) !important;",
+            block_for("#zen-sidebar-splitter:hover"),
+        )
+        self.assertIn(
+            "background: var(--simhae-sidebar-reveal-border) !important;",
+            block_for("#zen-sidebar-splitter::before"),
+        )
 
     def test_focused_urlbar_background_uses_base00(self):
         block = block_for('#urlbar[focused="true"] > .urlbar-background')

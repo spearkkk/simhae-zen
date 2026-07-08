@@ -21,6 +21,7 @@ class ThemeCssTest(unittest.TestCase):
         self.assertIn("--simhae-front-app-background: var(--simhae-base01);", css)
         self.assertIn("--simhae-front-app-border: rgba(74, 110, 134, 0.9);", css)
         self.assertIn("--simhae-sidebar-reveal-border: rgba(74, 110, 134, 0.68);", css)
+        self.assertIn("--simhae-sidebar-reveal-border-muted: rgba(74, 110, 134, 0.42);", css)
 
     def test_browser_content_shell_uses_base00(self):
         css = CSS.read_text()
@@ -51,6 +52,7 @@ class ThemeCssTest(unittest.TestCase):
     def test_sidebar_reveal_splitter_uses_alpha_border_color(self):
         css = CSS.read_text()
         selectors = [
+            "#navigator-toolbox",
             "#sidebar-splitter",
             "#sidebar-launcher-splitter",
             "#zen-sidebar-splitter",
@@ -62,6 +64,24 @@ class ThemeCssTest(unittest.TestCase):
             with self.subTest(selector=selector):
                 self.assertIn(selector, css)
 
+        self.assertIn("--border-color: var(--simhae-sidebar-reveal-border) !important;", css)
+        self.assertIn(
+            "--border-color-deemphasized: var(--simhae-sidebar-reveal-border-muted) !important;",
+            css,
+        )
+        self.assertIn(
+            "--border-color-interactive: var(--simhae-sidebar-reveal-border) !important;",
+            css,
+        )
+        self.assertIn(
+            "--border-color-interactive-hover: var(--simhae-sidebar-reveal-border) !important;",
+            css,
+        )
+        self.assertIn(
+            "border-color: var(--simhae-sidebar-reveal-border) !important;",
+            block_for("#navigator-toolbox"),
+        )
+        self.assertIn("box-shadow: none !important;", block_for("#navigator-toolbox"))
         self.assertIn("background: transparent !important;", block_for("#sidebar-splitter"))
         self.assertIn("border: none !important;", block_for("#sidebar-splitter"))
         self.assertIn(

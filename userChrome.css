@@ -28,6 +28,7 @@
   --simhae-front-app-background: var(--simhae-base01);
   --simhae-front-app-border: rgba(74, 110, 134, 0.9);
   --simhae-sidebar-reveal-border: rgba(74, 110, 134, 0.68);
+  --simhae-sidebar-reveal-border-muted: rgba(74, 110, 134, 0.42);
 
   --zen-primary-color: var(--simhae-base0c) !important;
   --zen-colors-primary: var(--simhae-base0c) !important;
@@ -57,13 +58,19 @@
   --sidebar-text-color: var(--simhae-base05) !important;
 }
 
-#navigator-toolbox,
 #TabsToolbar,
 #nav-bar,
 #PersonalToolbar {
   background-color: var(--simhae-base00) !important;
   color: var(--simhae-base05) !important;
   border-color: var(--simhae-base03) !important;
+}
+
+#navigator-toolbox {
+  background-color: var(--simhae-base00) !important;
+  color: var(--simhae-base05) !important;
+  border-color: var(--simhae-sidebar-reveal-border) !important;
+  box-shadow: none !important;
 }
 
 .urlbar-background,
@@ -220,6 +227,21 @@ zen-workspaces-button,
 
 #zen-sidebar-splitter::before {
   background: var(--simhae-sidebar-reveal-border) !important;
+}
+
+#navigator-toolbox,
+#zen-tabbox-wrapper,
+#sidebar-main,
+#sidebar-box,
+#sidebar-splitter,
+#sidebar-launcher-splitter,
+#zen-sidebar-splitter {
+  --border-color: var(--simhae-sidebar-reveal-border) !important;
+  --border-color-deemphasized: var(--simhae-sidebar-reveal-border-muted) !important;
+  --border-color-interactive: var(--simhae-sidebar-reveal-border) !important;
+  --border-color-interactive-active: var(--simhae-sidebar-reveal-border) !important;
+  --border-color-interactive-disabled: var(--simhae-sidebar-reveal-border-muted) !important;
+  --border-color-interactive-hover: var(--simhae-sidebar-reveal-border) !important;
 }
 
 #sidebar-header,

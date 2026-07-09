@@ -1,27 +1,52 @@
-# simhae for Zen Browser
+# Simhae for Zen Browser
 
-Dark ocean-inspired Zen Browser theme based on the Simhae pelagic palette.
+Simhae is a dark Zen Browser theme built around a calm blue palette. It styles the browser chrome, sidebar reveal frame, toolbar background, URL popup, tabs, panels, and common Zen UI surfaces.
 
-## Install
+![Simhae preview](https://raw.githubusercontent.com/spearkkk/simhae-zen/main/image.png)
 
-1. Open Zen Browser.
-2. Go to `about:support`.
-3. Open the active profile folder.
-4. Create a `chrome` directory if it does not exist.
-5. Copy `userChrome.css` from this repository into that `chrome` directory.
-6. Go to `about:config` and set:
-   - `toolkit.legacyUserProfileCustomizations.stylesheets` = `true`
-7. Restart Zen Browser.
+## Zen Mod
 
-## Development
+This repository is structured as a single Zen Browser Mod package:
 
-For local development, symlink this theme into your Zen profile:
-
-```sh
-ln -sf /Users/spearkkk/Projects/simhae-zen/userChrome.css "/path/to/Zen/Profile/chrome/userChrome.css"
+```text
+theme.json
+chrome.css
+preferences.json
+README.md
+image.png
 ```
 
-After changing `userChrome.css`, restart Zen Browser or use browser chrome debugging tools to reload styles.
+The mod entrypoint is `theme.json`, and the stylesheet loaded by Zen Mods is `chrome.css`.
+
+## Features
+
+- Base00 dark browser shell and sidebar background
+- URL popup styled with matching foreground, background, border, and divider
+- Compact sidebar reveal frame matched to the Simhae palette
+- Sidebar reveal border set to a soft alpha blue
+- Toolbar reveal background fixed to avoid Zen's default near-black floating frame
+- Tabs, toolbar buttons, panels, and menu hover states aligned with the theme
+
+## Optional Content CSS
+
+Zen Mods normally load browser chrome CSS from `chrome.css`. This repository also includes `userContent.css` for optional web content tweaks:
+
+- Web page scrollbar colors
+- High-contrast text selection colors
+- Login identity input direction fixes
+
+Install `userContent.css` manually in your Zen profile only if you want those content-page tweaks.
+
+## Local Development
+
+For local development, symlink the editable files into your Zen profile:
+
+```sh
+ln -sf /Users/spearkkk/Projects/simhae-zen/userChrome.css "$HOME/Library/Application Support/zen/Profiles/<profile>/chrome/userChrome.css"
+ln -sf /Users/spearkkk/Projects/simhae-zen/userContent.css "$HOME/Library/Application Support/zen/Profiles/<profile>/chrome/userContent.css"
+```
+
+After changing chrome or content CSS, restart Zen.
 
 ## Palette
 

@@ -1,0 +1,15 @@
+{
+  "id": "e94b8dd5-e308-43cf-b903-eb6ad821428c",
+  "name": "Simhae",
+  "description": "A calm dark Zen Browser theme with Simhae colors, framed sidebar reveal, and a matching URL popup.",
+  "homepage": "https://github.com/spearkkk/simhae-zen",
+  "style": "https://raw.githubusercontent.com/spearkkk/simhae-zen/main/chrome.css",
+  "readme": "https://raw.githubusercontent.com/spearkkk/simhae-zen/main/README.md",
+  "image": "https://raw.githubusercontent.com/spearkkk/simhae-zen/main/image.png",
+  "author": "spearkkk",
+  "version": "1.0.0",
+  "preferences": "https://raw.githubusercontent.com/spearkkk/simhae-zen/main/preferences.json",
+  "tags": ["theme", "dark", "sidebar", "urlbar"],
+  "createdAt": "2026-07-09",
+  "updatedAt": "2026-07-09"
+}

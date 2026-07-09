@@ -22,6 +22,10 @@ class ThemeCssTest(unittest.TestCase):
         self.assertIn("--simhae-front-app-border: rgba(74, 110, 134, 0.9);", css)
         self.assertIn("--simhae-sidebar-reveal-border: rgba(74, 110, 134, 0.68);", css)
         self.assertIn("--simhae-sidebar-reveal-border-muted: rgba(74, 110, 134, 0.42);", css)
+        self.assertIn("--zen-primary-color: var(--simhae-sidebar-reveal-border) !important;", css)
+        self.assertIn("--zen-colors-primary: var(--simhae-sidebar-reveal-border) !important;", css)
+        self.assertIn("--sidebar-border-color: var(--simhae-sidebar-reveal-border) !important;", css)
+        self.assertIn("--chrome-content-separator-color: var(--simhae-sidebar-reveal-border) !important;", css)
 
     def test_browser_content_shell_uses_base00(self):
         css = CSS.read_text()
@@ -53,6 +57,9 @@ class ThemeCssTest(unittest.TestCase):
         css = CSS.read_text()
         selectors = [
             "#navigator-toolbox",
+            "#navigator-toolbox .zen-toolbar-background",
+            "#navigator-toolbox .zen-toolbar-background::before",
+            "#navigator-toolbox .zen-toolbar-background::after",
             "#sidebar-splitter",
             "#sidebar-launcher-splitter",
             "#zen-sidebar-splitter",
@@ -82,8 +89,17 @@ class ThemeCssTest(unittest.TestCase):
             block_for("#navigator-toolbox"),
         )
         self.assertIn("box-shadow: none !important;", block_for("#navigator-toolbox"))
+        toolbar_background = block_for("#navigator-toolbox .zen-toolbar-background")
+        self.assertIn("background: var(--simhae-base00) !important;", toolbar_background)
+        self.assertIn("border: 2px solid var(--simhae-sidebar-reveal-border) !important;", toolbar_background)
+        self.assertIn("box-shadow: none !important;", toolbar_background)
+        toolbar_background_pseudo = block_for("#navigator-toolbox .zen-toolbar-background::before")
+        self.assertIn("background: var(--simhae-base00) !important;", toolbar_background_pseudo)
+        self.assertIn("outline: 2px solid var(--simhae-sidebar-reveal-border) !important;", toolbar_background_pseudo)
         self.assertIn("background: transparent !important;", block_for("#sidebar-splitter"))
         self.assertIn("border: none !important;", block_for("#sidebar-splitter"))
+        self.assertIn("--zen-primary-color: var(--simhae-sidebar-reveal-border) !important;", css)
+        self.assertIn("--button-background-color-primary: var(--simhae-sidebar-reveal-border) !important;", css)
         self.assertIn(
             "background: var(--simhae-sidebar-reveal-border) !important;",
             block_for("#zen-sidebar-splitter:hover"),
@@ -92,6 +108,18 @@ class ThemeCssTest(unittest.TestCase):
             "background: var(--simhae-sidebar-reveal-border) !important;",
             block_for("#zen-sidebar-splitter::before"),
         )
+
+    def test_sidebar_expand_on_hover_frame_uses_theme_colors(self):
+        css = CSS.read_text()
+        selector = ":root[sidebar-expand-on-hover] #sidebar-main:is("
+
+        self.assertIn(selector, css)
+        block = block_for(selector)
+        self.assertIn("background-image: none !important;", block)
+        self.assertIn("background-color: var(--simhae-base00) !important;", block)
+        self.assertIn("border-inline-end-color: var(--simhae-sidebar-reveal-border) !important;", block)
+        self.assertIn("border-inline-start-color: var(--simhae-sidebar-reveal-border) !important;", block)
+        self.assertIn("box-shadow: none !important;", block)
 
     def test_focused_urlbar_background_uses_base00(self):
         block = block_for('#urlbar[focused="true"] > .urlbar-background')

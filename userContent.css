@@ -1,0 +1,27 @@
+@-moz-document url-prefix("http://"), url-prefix("https://") {
+  html,
+  body {
+    scrollbar-color: #4a6e86 #0a1f2e !important;
+    scrollbar-width: thin !important;
+  }
+
+  ::selection {
+    background: #c8ae6a !important;
+    color: #071420 !important;
+  }
+
+  input[type="email"],
+  input[type="text"][autocomplete*="email" i],
+  input[type="text"][autocomplete*="username" i],
+  input[autocomplete="email"],
+  input[autocomplete="username"],
+  input[name*="email" i],
+  input[name*="user" i],
+  input[id*="email" i],
+  input[id*="user" i],
+  input[placeholder*="email" i],
+  input[placeholder*="user" i] {
+    direction: ltr !important;
+    text-align: left !important;
+  }
+}
